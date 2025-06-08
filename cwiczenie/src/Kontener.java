@@ -5,18 +5,18 @@ public class Kontener {
     protected int glebokosc;
     protected String numerSeryjny;
     protected double maksymalnaLadownosc;
-    protected int id;
+    protected static int id;
 
-    public Kontener(int masaLadunku, int wysokosc, int wagaWlasna, int glebokosc, String numerSeryjny, int maksymalnaLadownosc) {
+    public Kontener(double masaLadunku, int wysokosc, int wagaWlasna, int glebokosc, double maksymalnaLadownosc) {
         this.masaLadunku = masaLadunku;
         this.wysokosc = wysokosc;
         this.wagaWlasna = wagaWlasna;
         this.glebokosc = glebokosc;
-        this.numerSeryjny = numerSeryjny;
         this.maksymalnaLadownosc = maksymalnaLadownosc;
+        id++;
     }
 
-    public int getMasaLadunku() {
+    public double getMasaLadunku() {
         return masaLadunku;
     }
 
@@ -56,7 +56,7 @@ public class Kontener {
         this.numerSeryjny = numerSeryjny;
     }
 
-    public int getMaksymalnaLadownosc() {
+    public double getMaksymalnaLadownosc() {
         return maksymalnaLadownosc;
     }
 

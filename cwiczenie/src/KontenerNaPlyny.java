@@ -1,7 +1,16 @@
 public class KontenerNaPlyny extends Kontener implements IHazardNotifier{
-    public boolean niebezpieczny;
-    KontenerNaPlyny(int masaLadunku, int wysokosc, int wagaWlasna, int glebokosc, String numerSeryjny, int maksymalnaLadownosc, boolean niebezpieczny) {
-        super(masaLadunku, wysokosc, wagaWlasna, glebokosc, numerSeryjny, maksymalnaLadownosc);
+    private boolean niebezpieczny;
+    KontenerNaPlyny(double masaLadunku, int wysokosc, int wagaWlasna, int glebokosc, double maksymalnaLadownosc, boolean niebezpieczny) {
+        super(masaLadunku, wysokosc, wagaWlasna, glebokosc, maksymalnaLadownosc);
+        this.niebezpieczny = niebezpieczny;
+        numerSeryjny = "KON-L-"+id;
+    }
+
+    public boolean isNiebezpieczny() {
+        return niebezpieczny;
+    }
+
+    public void setNiebezpieczny(boolean niebezpieczny) {
         this.niebezpieczny = niebezpieczny;
     }
 
@@ -16,7 +25,13 @@ public class KontenerNaPlyny extends Kontener implements IHazardNotifier{
     }
 
     @Override
-    public void notifyHazard(String containerNumber) {
-        System.out.println("Hazard: " + containerNumber);
+    public void notifyHazard(String numerSeryjny) {
+        System.out.println("Hazard: " + numerSeryjny);
     }
+
+    @Override
+    public String toString() {
+        return STR."KontenerNaPlyny{numerSeryjny='\{numerSeryjny}', masaLadunku=\{masaLadunku} kg, wagaWlasna=\{wagaWlasna} kg, wysokosc=\{wysokosc} cm, glebokosc=\{glebokosc} cm, maksymalnaLadownosc=\{maksymalnaLadownosc} kg, niebezpieczny=\{niebezpieczny}}";
+    }
+
 }
